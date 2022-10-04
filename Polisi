@@ -1,0 +1,17 @@
+@app.on_message(filters.command("hack", prefixes=".") & filters.me)
+def hack(_, msg):
+    perc = 0
+ 
+    while(perc < 100):
+        try:
+            text = "👮‍ Взлом пентагона в процессе ..." + str(perc) + "%"
+            msg.edit(text)
+ 
+            perc += random.randint(1, 3)
+            sleep(0.1)
+ 
+        except FloodWait as e:
+            sleep(e.x)
+ 
+    msg.edit("🟢 Пентагон успешно взломан!")
+    sleep(3)
